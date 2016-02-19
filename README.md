@@ -16,5 +16,5 @@ ProxyPassReverse /foo http://foo.example.com/bar
 From within the conf directory run docker mounting the current dir as /conf and mapping port 443 to the host:
 
 ```bash
-$ docker run -p 443:443 -v `pwd`:/conf -d apache-proxy
+$ docker run -p 443:443 -v `pwd`:/conf -d daveoxley/apache-proxy-ssl
 ```
