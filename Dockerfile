@@ -10,6 +10,7 @@ RUN a2enmod proxy_http ssl
 
 COPY default-ssl.conf /etc/apache2/sites-available/
 COPY ports.conf /etc/apache2/
+RUN mkdir /etc/apache/proxy-conf
 RUN rm -rf /var/www/html/*
 
 RUN a2ensite default-ssl
