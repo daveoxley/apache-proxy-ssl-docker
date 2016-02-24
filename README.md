@@ -13,6 +13,13 @@ ProxyPass /foo http://foo.example.com/bar
 ProxyPassReverse /foo http://foo.example.com/bar
 ```
 
+Additional Apache modules or other startup commands can be run by supplying a startup.sh script in the conf directory.
+
+```sh
+#!/bin/sh
+a2enmod proxy_balancer lbmethod_byrequests
+```
+
 From within the conf directory run docker mounting the current dir as /conf and mapping port 443 to the host:
 
 ```bash

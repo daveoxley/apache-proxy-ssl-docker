@@ -15,8 +15,11 @@ COPY index.html /var/www/html/
 
 RUN a2ensite default-ssl
 
+RUN mkdir -p /etc/my_init.d
+COPY startup.sh /etc/my_init.d/
+
 RUN mkdir /etc/service/apache2
-ADD apache2.sh /etc/service/apache2/run
+COPY apache2.sh /etc/service/apache2/run
 
 EXPOSE 443
 
