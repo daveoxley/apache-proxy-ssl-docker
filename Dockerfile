@@ -3,9 +3,10 @@ MAINTAINER Dave Oxley <apache-proxy-docker@oxley.email>
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -yq install \
-        apache2
+        apache2 libapache2-mod-auth-mellon
 
 RUN a2enmod proxy_http ssl
+RUN a2dismod auth_mellon
 
 COPY default-ssl.conf /etc/apache2/sites-available/
 COPY ports.conf /etc/apache2/
